@@ -1,0 +1,28 @@
+{
+    "target": "linux/amd64",
+    "http": "0.0.0.0:56741",
+    "workdir": "/mnt/fuzz_workdir",
+    "kernel_obj": "/home/kaztoray/linux",
+    "image": "/home/kaztoray/img/bullseye.img",
+    "sshkey": "/home/kaztoray/img/bullseye.id_rsa",
+    "syzkaller": "/home/kaztoray/syzkaller",
+    "procs": 8,
+    "type": "qemu",
+    "vm": {
+        "count": 16,
+        "kernel": "/home/kaztoray/linux/arch/x86/boot/bzImage",
+        "cpu": 2,
+        "mem": 2048,
+        "qemu_args": "-enable-kvm -cpu host,migratable=off,+invtsc"
+    },
+    "enable_syscalls": [
+        "mount",
+        "umount2",
+        "syz_mount_image$*",
+        "syz_read_part_table",
+        "openat",
+        "read",
+        "write",
+        "close"
+    ]
+}
