@@ -17,9 +17,10 @@
     },
     "enable_syscalls": [
         "mount",
-        "mount$iso9660",
-        "syz_mount_image$iso9660",
-        "openat$dir",
+        "umount2",
+        "syz_mount_image",
+        "syz_read_part_table",
+        "openat",
         "read",
         "write",
         "close"
